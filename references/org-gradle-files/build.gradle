@@ -1,0 +1,56 @@
+// ============================================================
+// ORG GRADLE TEMPLATE — build.gradle
+// ============================================================
+// This is the organisation-specific base build.gradle template.
+// It is baked into the skill and used as the starting point for
+// all generated projects.
+//
+// SKILL SETUP INSTRUCTIONS (for skill author only):
+// Replace this file with your organisation's actual build.gradle.
+// Preserve all org-specific:
+//   - Plugin declarations (id blocks)
+//   - Repository definitions (Nexus, Artifactory URLs)
+//   - Company-wide dependency constraints
+//   - Checkstyle / Jacoco / Sonar plugin config
+//   - Any custom tasks (e.g. publish, release)
+//
+// The skill will merge generated project dependencies INTO this
+// template using the rules in gradle-groovy-template.md.
+// ============================================================
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.0'
+    id 'io.spring.dependency-management' version '1.1.4'
+    // ADD YOUR ORG PLUGINS HERE
+    // e.g. id 'com.example.org-conventions' version '1.0.0'
+}
+
+group = 'com.example'             // skill will replace with user's package root
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    // ADD YOUR ORG REPOSITORIES HERE
+    // e.g. maven { url 'https://nexus.example.com/repository/maven-public/' }
+    mavenCentral()
+}
+
+dependencies {
+    // Skill will append generated dependencies here
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
