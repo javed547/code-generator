@@ -1,0 +1,15 @@
+// ============================================================
+// ORG GRADLE TEMPLATE — settings.gradle
+// ============================================================
+// Replace rootProject.name with the generated app artifact name.
+// Add any org-wide plugin management or version catalog references below.
+// ============================================================
+
+// pluginManagement {
+//     repositories {
+//         maven { url 'https://nexus.example.com/repository/gradle-plugins/' }
+//         gradlePluginPortal()
+//     }
+// }
+
+rootProject.name = 'app-name'     // skill will replace with user's artifact name
